@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227142752) do
+ActiveRecord::Schema.define(version: 20160227152500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "code_tests", force: :cascade do |t|
+    t.string   "name"
+    t.text     "instructions"
+    t.text     "descriptions"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.integer  "status"
+    t.string   "name"
+    t.string   "email"
+    t.string   "role"
+    t.integer  "code_test_id"
+    t.uuid     "uuid"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "submissions", ["code_test_id"], name: "index_submissions_on_code_test_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -35,4 +56,5 @@ ActiveRecord::Schema.define(version: 20160227142752) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "submissions", "code_tests"
 end
