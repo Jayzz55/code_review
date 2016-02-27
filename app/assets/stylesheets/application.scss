@@ -1,0 +1,370 @@
+/*
+ *= require_self
+ */
+
+@import "normalize-rails";
+@import "bourbon";
+@import "base/base";
+@import "neat";
+@import "github";
+
+h1 {
+  font-size: modular-scale(2);
+}
+
+header {
+  margin-bottom: 50px;
+}
+
+.header-menu {
+  background-color: #fff;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+
+  color: #333;
+
+  @include outer-container;
+
+  p {
+    line-height: 60px;
+  }
+
+  img {
+    margin: 10px 0;
+  }
+}
+
+.header-hero__text {
+  @include outer-container;
+}
+.header-hero {
+  background-size: cover;
+  background-position: center;
+  background-image: url(header-bg.jpg);
+  padding: 80px 0;
+
+  h1 {
+    font-size: modular-scale(4);
+
+    font-weight: 300;
+    color: #efefef;
+    text-align: center;
+
+    text-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 3px;
+  }
+}
+
+.container {
+  @include outer-container;
+}
+
+.submission-instructions__welcome {
+  p {
+    font-size: modular-scale(1);
+  }
+}
+.submission-instructions__instructions {
+  @include span-columns(8);
+  @include shift(2);
+
+  background-color: #efefef;
+  padding: 10px;
+
+  pre {
+    margin-top: 0;
+  }
+}
+
+.submission-instructions__description {
+  margin: 10px;
+  border: 1px solid #666;
+  border-radius: 3px;
+  padding: 5px 10px;
+
+  background-color: #eee;
+}
+
+.submission-instructions__account-details {
+  text-align: center;
+}
+
+pre, .pre {
+  padding: 5px 7px;;
+  border-radius: 3px;
+  background-color: #f8f8f8;
+  border: 1px solid #dddddd;
+}
+
+.pre {
+  display: inline-block;
+
+}
+
+.highlight {
+  table, td, pre {
+    margin-top: 0px;
+  }
+  td.gutter {
+    width: 50px;
+  }
+}
+
+
+.reviewing-stats {
+  text-align: center;
+
+  $base-spacing: 1.5em !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+  $action-color: #477dca !default;
+  $stats-color: lighten($action-color, 10%);
+
+  padding: $base-spacing / 2;
+
+  ul {
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include clearfix;
+
+    display: inline-block;
+  }
+
+  li {
+    border-right: 1px solid transparentize($base-font-color, 0.8);
+    color: $stats-color;
+    display: inline;
+    float: left;
+    font-size: 1.2em;
+    line-height: 1.1em;
+    padding: 0 0.7em;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+
+  span {
+    color: $base-font-color;
+    display: block;
+    font-size: 0.7em;
+    font-weight: normal;
+  }
+}
+
+.accordion-tabs-minimal {
+  $base-border-color: #dcdcdc !default;
+  $base-background-color: #fff !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477dca !default;
+  $dark-gray: #333 !default;
+  $medium-screen: em(640) !default;
+  $tab-link-color: $dark-gray;
+  $tab-border: 1px solid $base-border-color;
+  $tab-active-background: $base-background-color;
+  $tab-inactive-color: $base-background-color;
+  $tab-inactive-hover-color: #c0c0c0;
+  $tab-mode: $medium-screen;
+
+  @include clearfix;
+  line-height: 1.5;
+  padding: 0;
+
+  .tab-header-and-content {
+    list-style: none;
+
+    @include media($tab-mode) {
+      display: inline;
+    }
+  }
+
+  .tab-link {
+    background-color: $tab-inactive-color;
+    border-top: $tab-border;
+    color: $tab-link-color;
+    display: block;
+    padding: ($base-spacing / 2) $gutter;
+    text-decoration: none;
+
+    @include media($tab-mode) {
+      border-top: 0;
+      display: inline-block;
+    }
+
+    &:hover {
+      color: $action-color;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &.is-active {
+      border-bottom: 0;
+
+      @include media($tab-mode) {
+        border: $tab-border;
+        border-bottom-color: $tab-active-background;
+        margin-bottom: -1px;
+      }
+    }
+  }
+
+  .tab-content {
+    display: none;
+    padding: $base-spacing $gutter;
+    width: 100%;
+
+    @include media($tab-mode) {
+      border-top: $tab-border;
+      float: left;
+    }
+  }
+}
+
+.grouped-commit__title {
+  color: #999;
+}
+
+.git-commit {
+  border: 1px solid #eee;
+  border-radius: 2px;
+
+  padding: 10px;
+  margin-left: 30px;
+}
+
+.git-commit__title {
+  font-weight: bold;
+}
+
+.git-commit__expand {
+  display: inline-block;
+  height: 12px;
+  padding: 0 5px 5px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 6px;
+  color: #555;
+  text-decoration: none;
+  vertical-align: middle;
+  background: #ddd;
+  border-radius: 1px;
+  border: 0;
+
+  &:hover {
+    background-color: #ccc;
+    color: #333;
+  }
+}
+
+.git-commit__date {
+  color: #aaa;
+  font-size: 0.8em;
+}
+
+.git-commit__full-message {
+  font-size: 0.9em;
+  color: #666;
+
+  border-left: 1px solid #aaa;
+  padding-left: 15px;
+}
+
+.button-group {
+  @include clearfix;
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 3px !default;
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $base-font-size: 1em !default;
+  $base-background-color: white !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $large-screen: em(860) !default;
+  $base-font-color: $dark-gray !default;
+  $button-group-background: $base-background-color;
+  $button-group-color: lighten($base-font-color, 30%);
+  $button-group-border: 1px solid silver;
+  $button-group-inner-border: 1px solid lighten(silver, 18%);
+  $button-group-background-checked: $action-color;
+  $button-group-color-checked: white;
+  $button-group-border-checked: darken($button-group-background-checked, 15%);
+
+  input {
+    display: none;
+  }
+
+  label {
+    margin-bottom: 0;
+
+    @include media($large-screen) {
+      float: left;
+    }
+
+    .button-group-item {
+      background: $button-group-background;
+      border-left: $button-group-border;
+      border-radius: 0;
+      border-right: $button-group-border;
+      color: $button-group-color;
+      cursor: pointer;
+      display: inline-block;
+      font-size: $base-font-size;
+      font-weight: normal;
+      line-height: 1;
+      padding: 0.75em 1em;
+      width: 100%;
+
+      @include media($large-screen) {
+        border-bottom: $button-group-border;
+        border-left: 0;
+        border-right: $button-group-inner-border;
+        border-top: $button-group-border;
+        width: auto;
+      }
+
+      &:focus,
+      &:hover {
+        background-color: darken($button-group-background, 3%);
+      }
+    }
+
+    &:first-child .button-group-item {
+      border-top-left-radius: $base-border-radius;
+      border-top-right-radius: $base-border-radius;
+      border-top: $button-group-border;
+
+      @include media($large-screen) {
+        border-bottom-left-radius: $base-border-radius;
+        border-left: $button-group-border;
+        border-top-left-radius: $base-border-radius;
+        border-top-right-radius: 0;
+      }
+    }
+
+    &:last-child .button-group-item {
+      border-bottom-left-radius: $base-border-radius;
+      border-bottom-right-radius: $base-border-radius;
+      border-bottom: $button-group-border;
+
+      @include media($large-screen) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: $base-border-radius;
+        border-right: $button-group-border;
+        border-top-right-radius: $base-border-radius;
+      }
+    }
+
+    input:checked + .button-group-item {
+      background: $button-group-background-checked;
+      border: 1px solid $button-group-border-checked;
+      box-shadow: inset 0 1px 2px darken($button-group-background-checked, 10%);
+      color: $button-group-color-checked;
+    }
+  }
+}

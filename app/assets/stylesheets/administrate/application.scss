@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+@import "normalize-rails";
+@import "bourbon";
+@import "neat";
+
+@import "selectize";
+@import "datetime_picker";
+
+@import "library/**/*";
+@import "base/**/*";
+@import "components/**/*";
+
+.reviews .indicator {
+  color: black;
+  width: 10%;
+}
+
+.reviews .criterion {
+  width: 20%;
+}
+
+.reviews .comment {
+  width: 70%;
+}
+
+.rating-bad .indicator {
+  background-color: red;
+}
+
+.rating-okay .indicator {
+  background-color: yellow;
+}
+
+.rating-great .indicator {
+  background-color: green;
+}
