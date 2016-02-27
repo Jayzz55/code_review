@@ -1,3 +1,17 @@
+GIT
+  remote: https://github.com/grackorg/grack.git
+  revision: 224e10781c5c106d29492dedeb3f3dfc939906d1
+  specs:
+    grack (0.1.0.pre2)
+      rack
+
+GIT
+  remote: https://github.com/libgit2/rugged.git
+  revision: 84e8d156fd1d4f25a2e7275a8806a9d8b63238f5
+  submodules: true
+  specs:
+    rugged (0.24.0b13)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -36,6 +50,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     administrate (0.1.4)
       autoprefixer-rails (~> 6.0)
       datetime_picker_rails (~> 0.0.7)
@@ -51,6 +66,10 @@ GEM
     autoprefixer-rails (6.3.3.1)
       execjs
     bcrypt (3.1.10)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bourbon (4.2.6)
@@ -58,6 +77,16 @@ GEM
       thor (~> 0.19)
     builder (3.2.2)
     byebug (8.2.2)
+    capybara (2.6.2)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    childprocess (0.5.9)
+      ffi (~> 1.0, >= 1.0.11)
+    coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -66,6 +95,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.1)
+    database_cleaner (1.5.1)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     debug_inspector (0.0.2)
@@ -76,12 +106,22 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.6.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
+    faker (1.6.3)
+      i18n (~> 0.5)
+    ffi (1.9.10)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     high_voltage (2.4.0)
     i18n (0.7.0)
+    interception (0.5)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -94,10 +134,13 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.10.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.99.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
@@ -112,8 +155,19 @@ GEM
     normalize-rails (3.0.3)
     orm_adapter (0.5.0)
     pg (0.18.4)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
+    pry-rescue (1.4.2)
+      interception (>= 0.5)
+      pry
     pundit (1.1.0)
       activesupport (>= 3.0.0)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -149,8 +203,28 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.15.0)
     rake (10.5.0)
+    redcarpet (3.3.4)
     responders (2.1.1)
       railties (>= 4.2.0, < 5.1)
+    rouge (1.10.1)
+    rspec-core (3.4.3)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-rails (3.4.2)
+      actionpack (>= 3.0, < 4.3)
+      activesupport (>= 3.0, < 4.3)
+      railties (>= 3.0, < 4.3)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
+    rubyzip (1.2.0)
     sass (3.4.21)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -159,10 +233,18 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
     selectize-rails (0.12.1)
+    selenium-webdriver (2.52.0)
+      childprocess (~> 0.5)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    slop (3.6.0)
     spring (1.6.4)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -194,26 +276,48 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    websocket (1.2.2)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   administrate
+  better_errors
+  bourbon
   byebug
+  capybara
   coffee-rails (~> 4.1.0)
+  database_cleaner
   devise
+  factory_girl_rails
+  faker
+  grack!
   high_voltage
   jbuilder (~> 2.0)
   jquery-rails
+  launchy
+  neat
+  normalize-rails
   pg
+  pry-rails
+  pry-rescue
   pundit
+  quiet_assets
   rails (= 4.2.5.1)
   rails_12factor
   rails_layout
+  redcarpet
+  rouge
+  rspec-rails
+  rugged!
   sass-rails (~> 5.0)
+  selenium-webdriver
   simple_form
   spring
+  spring-commands-rspec
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
