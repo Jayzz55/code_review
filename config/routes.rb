@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :submissions
+  resources :submissions, only: [:show]
   namespace :admin do
     resources :users
     resources :code_tests
     resources :criteria
-    root to: "code_tests#index"
+    root to: "submissions#index"
   end
   devise_for :users
 end
