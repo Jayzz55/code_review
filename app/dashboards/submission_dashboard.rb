@@ -54,6 +54,7 @@ class SubmissionDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :code_test,
+    :status,
     :name,
     :email,
     :role,
