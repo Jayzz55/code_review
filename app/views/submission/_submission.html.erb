@@ -1,0 +1,25 @@
+<% content_for :header_text do %>
+  <%= submission.code_test.name %>
+<% end %>
+<% content_for :header_block do %>
+  <div class="submission-instructions__instructions">
+    <%= MarkdownService.new.render(submission.code_test.instructions).html_safe %>
+    <p class="submission-instructions__account-details">
+      <span>Username:</span>
+      <span class="pre"><%= submission.username %></span>
+      <span>Password:</span>
+      <span class="pre"><%= submission.password %></span>
+    </p>
+  </div>
+<% end %>
+<section class="submission-instructions__welcome">
+  <p>Hi <%= submission.name %>,<p>
+  <p>
+    Submit your code here for a peer review :)
+    It shouldn't take too long, but use it as an opportunity to show off your skills.
+  <p>
+</section>
+
+<section class="submission-instructions__description">
+  <p><%= MarkdownService.new.render(submission.code_test.description).html_safe %></p>
+</section>

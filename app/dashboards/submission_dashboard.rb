@@ -1,11 +1,23 @@
 require "administrate/base_dashboard"
 
-class CodeTestDashboard < Administrate::BaseDashboard
+class SubmissionDashboard < Administrate::BaseDashboard
+  # ATTRIBUTE_TYPES
+  # a hash that describes the type of each of the model's fields.
+  #
+  # Each different type represents an Administrate::Field object,
+  # which determines how the attribute is displayed
+  # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    code_test: Field::BelongsTo,
     id: Field::Number,
+    status: SelectField.with_options(
+      choices: Submission.statuses.keys
+    ),
     name: Field::String,
-    instructions: MarkdownField,
-    description: MarkdownField,
+    email: Field::String,
+    role: Field::String,
+    uuid: Field::String,
+    candidate_url: UrlField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }
@@ -16,16 +28,23 @@ class CodeTestDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :code_test,
     :id,
+    :status,
     :name,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :code_test,
     :id,
+    :status,
     :name,
-    :description,
+    :email,
+    :role,
+    :uuid,
+    :candidate_url,
     :created_at,
     :updated_at,
   ]
@@ -34,15 +53,17 @@ class CodeTestDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :code_test,
     :name,
-    :instructions,
-    :description,
+    :email,
+    :role,
   ]
 
-  # Overwrite this method to customize how users are displayed
+  # Overwrite this method to customize how submissions are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(code_test)
-    code_test.name
-  end
+  # def display_resource(submission)
+  #   "Submission ##{submission.id}"
+  # end
 end
+
