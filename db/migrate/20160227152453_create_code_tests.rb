@@ -3,7 +3,6 @@ class CreateCodeTests < ActiveRecord::Migration
     create_table :code_tests do |t|
       t.string :name
       t.text :instructions
-      t.text :descriptions
 
       t.timestamps null: false
     end
