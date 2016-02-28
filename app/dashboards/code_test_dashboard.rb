@@ -39,7 +39,7 @@ class CodeTestDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(user)
-  #   "User ##{user.id}"
-  # end
+  def display_resource(code_test)
+    code_test.name
+  end
 end
